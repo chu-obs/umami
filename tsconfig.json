@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2022",
     "outDir": "./build",
     "module": "esnext",
     "moduleResolution": "node",
@@ -21,17 +21,17 @@
     "noEmit": true,
     "jsx": "preserve",
     "incremental": false,
-    "baseUrl": "./src",
+    "types": ["jest"],
+    "typeRoots": ["node_modules/@types"],
     "paths": {
-      "assets/*": ["./assets/*"],
-      "components/*": ["./components/*"],
-      "lib/*": ["./lib/*"],
-      "pages/*": ["./pages/*"],
-      "queries/*": ["./queries/*"],
-      "store/*": ["./store/*"],
-      "styles/*": ["./styles/*"]
-    }
+      "@/*": ["./src/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
-  "exclude": ["node_modules"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "./cypress.config.ts", "cypress"]
 }

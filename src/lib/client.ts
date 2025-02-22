@@ -1,11 +1,11 @@
-import { getItem, setItem, removeItem } from 'next-basics';
+import { getItem, setItem, removeItem } from '@/lib/storage';
 import { AUTH_TOKEN } from './constants';
 
 export function getClientAuthToken() {
   return getItem(AUTH_TOKEN);
 }
 
-export function setClientAuthToken(token) {
+export function setClientAuthToken(token: string) {
   setItem(AUTH_TOKEN, token);
 }
 
